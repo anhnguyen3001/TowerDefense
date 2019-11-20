@@ -20,11 +20,15 @@ public abstract class AbstractBullet extends AbstractEntity implements UpdateEnt
     }
 
     public void calculate(){
-        angle = Math.toDegrees(Math.atan2(target.getY() - getY(), target.getX() - getX())) + 90;
-    }
+        double distanceX = target.getX() - getX();
+        double distanceY = target.getY() - getY();
 
-    public double getAngle(){
-        return angle;
+        if (target.getDirection() == Config.LEFT) distanceX -= target.getSpeed();
+        else if (target.getDirection() == Config.RIGHT) distanceX += target.getSpeed();
+        else if (target.getDirection() == Config.UP) distanceY -= target.getSpeed();
+        else distanceY += target.getSpeed();
+
+        angle = Math.toDegrees(Math.atan2(distanceY, distanceX)) + 90;
     }
 
     @Override
@@ -33,26 +37,24 @@ public abstract class AbstractBullet extends AbstractEntity implements UpdateEnt
         double angleToRadian = Math.toRadians(angle - 90);
         double distanceFromBullet = AbstractEntity.evaluateDistance(target.getX(), target.getY(), getX(), getY());
         if (distanceFromBullet < speed){
-            setX(getX() + Math.cos(angleToRadian) * distanceFromBullet);
-            setY(getY() + Math.sin(angleToRadian) * distanceFromBullet);
+            int direction = target.getDirection();
+            if (direction == Config.UP || direction == Config.DOWN) {
+                setY(Math.tan(angleToRadian) * (target.getX() - getX()));
+                setX(target.getX());
+            }
+            else {
+                setX(Math.tan(angleToRadian) * (target.getY() - getY()));
+                setY(target.getY());
+            }
+            /**setX(getX() + Math.cos(angleToRadian) * distanceFromBullet);
+            setY(getY() + Math.sin(angleToRadian) * distanceFromBullet);**/
+        } else {
+            setX(getX() + Math.cos(angleToRadian) * speed);
+            setY(getY() + Math.sin(angleToRadian) * speed);
         }
-
-        setX(getX() + Math.cos(angleToRadian) * speed);
-        setY(getY() + Math.sin(angleToRadian) * speed);
     }
 
     public boolean checkCollision(){
-        /**
-         double topTargetX = target.getX() + 1/3;
-         double topTargetY = target.getY() + 1/3;
-
-         double topBulletX = getX() + 1/3;
-         double topBulletY = getY() + 1/3;
-         double size = getSize()/3;
-
-         return (topBulletX <= topTargetX + size && topBulletX + size >= topTargetX
-         && topBulletY <= topTargetY + size && topTargetY <= topBulletY +size);
-         **/
         return (AbstractEntity.evaluateDistance(target.getX(), target.getY(), getX(), getY()) <= (double)2/3);
     }
 

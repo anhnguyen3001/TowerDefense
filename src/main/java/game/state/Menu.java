@@ -1,10 +1,9 @@
 package game.state;
 
-import java.util.Optional;
-
+import game.Config;
+import game.Display;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -12,6 +11,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import java.util.Optional;
 
 public class Menu{
     private Display display;
@@ -25,26 +25,29 @@ public class Menu{
     }
 
     public void createMenu(){
-        Image playgame = new Image("file:src/main/resources/Button/Start.png");
-        Image highscore = new Image("file:src/main/resources/Button/HighScore.png");
-        Image Quit = new Image("file:src/main/resources/Button/QuitGame.png");
-        Image screen = new Image("file:src/main/resources/AssetsKit_2/Sample.png");
+        Image playgame = new Image(Config.BUTTON_START_GAME);
+        //Image highscore = new Image(Config.BUTTON_HIGH_SCORE);
+        Image Quit = new Image(Config.BUTTON_QUIT_GAME);
+        Image screen = new Image("file:src/main/resources/AssetsKit_2/bk.png");
 
         playGame = new Button();
+        playGame.setTranslateY(80);
         playGame.setGraphic(new ImageView(playgame));
         playGame.setOnAction(e -> {
-            final Canvas canvas = new Canvas(display.getWidth(), display.getHeight());
-            display.changeStage(canvas);
+            display.changeStage();
+            game = new Game(display);
             game.start();
         });
 
+        /**
         highScore = new Button();
         highScore.setGraphic(new ImageView(highscore));
         highScore.setOnAction(e -> {
 
-        });
+        });**/
 
         quit = new Button();
+        quit.setTranslateY(80);
         quit.setGraphic(new ImageView(Quit));
         quit.setOnAction(e ->{
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -64,10 +67,10 @@ public class Menu{
                                 BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         Background bkg = new Background(bki);
 
-        VBox layout = new VBox(100);
+        VBox layout = new VBox(30);
         layout.setAlignment(Pos.CENTER);
         layout.setBackground(bkg);
-        layout.getChildren().addAll(playGame, highScore, quit);
+        layout.getChildren().addAll(playGame, quit);
 
         display.setScene(new Scene(layout, display.getWidth(), display.getHeight()));
         display.getStage().setScene(display.getScene());

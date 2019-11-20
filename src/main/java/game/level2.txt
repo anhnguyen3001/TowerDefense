@@ -1,0 +1,3 @@
+NormalSpawner 15 7
+BossSpawner 30 2
+SmallerSpawner 10 12

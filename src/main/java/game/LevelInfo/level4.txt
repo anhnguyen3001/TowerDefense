@@ -1,0 +1,4 @@
+NormalSpawner 15 0
+BossSpawner 20 0
+SmallerSpawner 10 15
+TankerSpawner 15 2

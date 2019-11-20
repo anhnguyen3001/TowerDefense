@@ -7,7 +7,7 @@ import game.Tile.AbstractTile;
 import game.Tile.UpdateEntity;
 
 public abstract class AbstractSpawner extends AbstractTile implements UpdateEntity {
-    private final int intervalTime;
+    private int intervalTime;
     private int tick;
     private int numOfInterval;
 
@@ -16,6 +16,14 @@ public abstract class AbstractSpawner extends AbstractTile implements UpdateEnti
         this.intervalTime = intervalTime;
         this.numOfInterval = numOfInterval;
         tick = 0;
+    }
+
+    public void setNumOfInterval(int numOfInterval) {
+        this.numOfInterval = numOfInterval;
+    }
+
+    public void setIntervalTime(int intervalTime){
+        this.intervalTime = intervalTime;
     }
 
     public void update(GameField field){

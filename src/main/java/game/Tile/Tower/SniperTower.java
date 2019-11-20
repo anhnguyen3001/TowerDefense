@@ -46,11 +46,16 @@ public class SniperTower extends AbstractTower{
         gc.drawImage(gunIMG, -getSize()/2, -getSize()/2);
         gc.restore();
 
-        //Draw Range
-        double range = getRange();
-        double topRangeX = centerX - range;
-        double topRangeY = centerY - range;
-        gc.setFill(Color.rgb(200, 200, 200, 0.3));
-        gc.fillOval(topRangeX * tileSize, topRangeY * tileSize, 2 * range * tileSize, 2 * range * tileSize);
+        gc.getCanvas().setOnMouseClicked(event -> {
+            if (event.getX() >= getX() * tileSize && event.getX() <= getX() * tileSize + getSize()
+                    && event.getY() >= getY() * tileSize && event.getY() <= getY() * tileSize + getSize()){
+                if (isHasClicked()) {
+                    //TowerInfo.clear(gc);
+                    setHasClicked(false);
+                }
+                else setHasClicked(true);
+            }
+        });
+        if (isHasClicked()) renderIfClick(gc);
     }
 }

@@ -13,13 +13,15 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 public abstract class AbstractTower extends AbstractTile implements UpdateEntity {
+    private final int maxLevel = 3;
+    private int level;
     private double range;
     private int fireRate;
     private int damage;
     private int buyCost;
     private int tick;
     private double angleRotation;               	//goc xoay thap
-    private static final int damageUpgrade = Config.damageUpgrade;
+    private boolean hasClicked;
 
     public AbstractTower(double x, double y, double range, int fireRate, int damage, int buyCost, String IMG_PATH) {
         super(x, y, IMG_PATH);
@@ -29,6 +31,20 @@ public abstract class AbstractTower extends AbstractTile implements UpdateEntity
         this.buyCost = buyCost;
         tick = 0;
         angleRotation = 0;
+        level = 1;
+        hasClicked = false;
+    }
+
+    public void upgrade(){
+        level++;
+        buyCost *= 2;
+        damage += 5 * (level - 1);
+        fireRate -= 3;
+        range += 0.3 * (level - 1);
+    }
+
+    public boolean canUpgrade(){
+        return (level < maxLevel);
     }
 
     public double getRange() {
@@ -43,16 +59,36 @@ public abstract class AbstractTower extends AbstractTile implements UpdateEntity
         return buyCost;
     }
 
-    public int getFireRate() {
-        return fireRate;
+    public int getUpgradeDamage(){
+        return (damage + 5 * (level - 1));
     }
 
-    public void upgradeDamage() {
-        damage += damageUpgrade;
+    public double getUpgardeRange(){
+        return (range + 0.3 * (level - 1));
+    }
+
+    public int getUpgradeCost(){
+        return (buyCost*2);
+    }
+
+    public int getSellValue(){
+        return buyCost-5;
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public double getAngleRotation(){
         return angleRotation;
+    }
+
+    public boolean isHasClicked() {
+        return hasClicked;
+    }
+
+    public void setHasClicked(boolean hasClicked) {
+        this.hasClicked = hasClicked;
     }
 
     public boolean isEnemyInRange(AbstractEnemy enemy) {
@@ -120,9 +156,15 @@ public abstract class AbstractTower extends AbstractTile implements UpdateEntity
         gc.drawImage(getImage(), -getSize()/2, -getSize()/2);
         gc.restore();
 
-        double topRangeX = centerX - range;
-        double topRangeY = centerY - range;
+        if (hasClicked) renderIfClick(gc);
+    }
+
+    public void renderIfClick(GraphicsContext gc){
+        double tileSize = Config.SIZE_TILE;
+        double topRangeX = getX() + 0.5 - range;
+        double topRangeY = getY() + 0.5 - range;
         gc.setFill(Color.rgb(200, 200, 200, 0.3));
         gc.fillOval(topRangeX * tileSize, topRangeY * tileSize, 2 * range * tileSize, 2 * range * tileSize);
+        new TowerInfo().render(gc, this);
     }
 }

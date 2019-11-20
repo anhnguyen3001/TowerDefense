@@ -1,8 +1,8 @@
 package game;
 
-import javafx.scene.Group;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.text.Text;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class Player {
     private int coin;
@@ -29,11 +29,17 @@ public class Player {
         return live;
     }
 
-    public void renderStatus(Group root, GraphicsContext gc){
-        Text health = new Text();
-        health.setText(Integer.toString(this.live));
-        health.setX(2*Config.SIZE_TILE);
-        health.setY(Config.SCREEN_HEIGHT - Config.SIZE_TILE);
-        root.getChildren().add(health);
+    public void renderStatus(GraphicsContext gc){
+        gc.clearRect(0, Config.SIZE_TILE*10, Config.SIZE_TILE*16, Config.SCREEN_HEIGHT - Config.SIZE_TILE*10);
+        gc.strokeRect(0, Config.SIZE_TILE*10, Config.SIZE_TILE*16, Config.SCREEN_HEIGHT - Config.SIZE_TILE*10);
+        gc.setStroke(Color.BLACK);
+
+        gc.setFill(Color.GRAY);
+        gc.fillRect(0, Config.SIZE_TILE*10, 16 * Config.SIZE_TILE, Config.SCREEN_HEIGHT - Config.SIZE_TILE*10);
+
+        gc.setFont(Font.font("Bookman", 25));
+        gc.setFill(Color.BLACK);
+        gc.fillText("Lives: " + Integer.toString(getLive()), 7.5 * Config.SIZE_TILE, 10.7 * Config.SIZE_TILE);
+        gc.fillText("Coins: " + Integer.toString(getCoin()), 12.5 * Config.SIZE_TILE, 10.7 * Config.SIZE_TILE);
     }
 }

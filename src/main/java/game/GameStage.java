@@ -1,14 +1,7 @@
 package game;
 
-import game.Enemy.AbstractEnemy;
-import game.Enemy.SmallerEnemy;
-import game.Tile.Mountain;
-import game.Tile.Road;
-import game.Tile.Spawner.BossSpawner;
-import game.Tile.Spawner.NormalSpawner;
-import game.Tile.Spawner.SmallerSpawner;
-import game.Tile.Spawner.TankerSpawner;
-import game.Tile.Target;
+import game.Tile.*;
+import game.Tile.Spawner.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,15 +15,17 @@ public class GameStage {
     private ArrayList<AbstractEntity> entities;
     private ArrayList<ArrayList<Integer>> BitMap = new ArrayList<ArrayList<Integer>>();
     private ArrayList<Double> wayPoint = new ArrayList<>();
+    private int maxLevel;
 
     public GameStage(int row, int col, ArrayList<AbstractEntity> entities,
-                     ArrayList<ArrayList<Integer>> BitMap, Player player, ArrayList<Double> wayPoint) {
+                     ArrayList<ArrayList<Integer>> BitMap, Player player, ArrayList<Double> wayPoint, int maxLevel) {
         this.entities = entities;
         this.BitMap = BitMap;
         this.row = row;
         this.col = col;
         this.player = player;
         this.wayPoint = wayPoint;
+        this.maxLevel = maxLevel;
     }
 
     public static GameStage load(String path) {
@@ -45,9 +40,8 @@ public class GameStage {
             //Map
             ArrayList<AbstractEntity> entities = new ArrayList<>();
             ArrayList<ArrayList<Integer>> BitMap = new ArrayList<ArrayList<Integer>>();
-            ArrayList<Double> wayPoint = new ArrayList<>();
             Player player = null;
-
+            int maxLevel = 0;
             double startX = 0;
             double startY = 0;
             double endX = 0;
@@ -59,20 +53,21 @@ public class GameStage {
                 for (int j = 0; j < temp.length; j++) {
                     int bit = Integer.parseInt(temp[j]);
                     value.add(bit);
-
-                    if (bit != 1) entities.add(new Mountain(j, i, bit));
-                    else entities.add(new Road(j, i));
+                    if (bit != 1 && bit != 0) entities.add(new Mountain(j, i, bit));
+                    else if (bit == 1) entities.add(new Road(j, i, bit));
+                    else entities.add(new BlankLand(j, i, bit));
                 }
                 BitMap.add(value);
             }
 
             while (sc.hasNext()) {
                 temp = sc.nextLine().split(" ");
-                if (temp[0].equals("NormalSpawner")) {
-                    startX = Double.parseDouble(temp[1]);
-                    startY = Double.parseDouble(temp[2]);
-                    int delayTime = Integer.parseInt(temp[3]);
-                    int numOfTurn = Integer.parseInt(temp[4]);
+                if (temp[0].equals("Start")){
+                    startX = Integer.parseInt(temp[1]);
+                    startY = Integer.parseInt(temp[2]);
+                } else if (temp[0].equals("NormalSpawner")) {
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
                     entities.add(new NormalSpawner(startX, startY, delayTime, numOfTurn));
                 } else if (temp[0].equals("Target")) {
                     endX = Double.parseDouble(temp[1]);
@@ -80,46 +75,82 @@ public class GameStage {
                     int health = Integer.parseInt(temp[3]);
                     entities.add(new Target(endX, endY,health));
                 } else if (temp[0].equals("BossSpawner")){
-                    startX = Double.parseDouble(temp[1]);
-                    startY = Double.parseDouble(temp[2]);
-                    int delayTime = Integer.parseInt(temp[3]);
-                    int numOfTurn = Integer.parseInt(temp[4]);
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
                     entities.add(new BossSpawner(startX, startY, delayTime, numOfTurn));
                 }else if (temp[0].equals("SmallerSpawner")){
-                    startX = Double.parseDouble(temp[1]);
-                    startY = Double.parseDouble(temp[2]);
-                    int delayTime = Integer.parseInt(temp[3]);
-                    int numOfTurn = Integer.parseInt(temp[4]);
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
                     entities.add(new SmallerSpawner(startX, startY, delayTime, numOfTurn));
                 } else if (temp[0].equals("TankerSpawner")){
-                    startX = Double.parseDouble(temp[1]);
-                    startY = Double.parseDouble(temp[2]);
-                    int delayTime = Integer.parseInt(temp[3]);
-                    int numOfTurn = Integer.parseInt(temp[4]);
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
                     entities.add(new TankerSpawner(startX, startY, delayTime, numOfTurn));
-                } else if (temp[0].equals("WayPoint")) {
-                    for (int i = 1; i < temp.length; i++){
-
-                        String[] bit = temp[i].split(",");
-                        double x = Integer.parseInt(bit[0].substring(1, bit[0].length()));
-                        double y = Integer.parseInt(bit[1].substring(0, bit[1].length() - 1));
-
-                        wayPoint.add(x);
-                        wayPoint.add(y);
-                    }
                 } else if (temp[0].equals("Player")){
                     int live = Integer.parseInt(temp[1]);
                     int coin = Integer.parseInt(temp[2]);
 
                     player = new Player(coin, live);
+                } else if (temp[0].equals("Level")){
+                    maxLevel = Integer.parseInt(temp[1]);
                 }
             }
+
+            //FindingPath
+            ArrayList<Double> Path = new ArrayList<>();
+            Integer[][] delta = {{1, 0}, {0,1}, {-1, 0}, {0,-1}};
+            Path.add(startX);
+            Path.add(startY);
+
+            double curX = startX;
+            double curY = startY;
+            double preX = curX;
+            double preY = curY;
+            int preDirection = -1;
+            while (curX != endX || curY != endY){
+                for(int i = 0; i < delta.length; i++) {
+                    int deltaX = delta[i][0];
+                    int deltaY = delta[i][1];
+                    if (preDirection != -1)
+                        if (deltaX * -1 == delta[preDirection][0] && deltaY * -1 == delta[preDirection][1])
+                            continue;
+
+                    curX = preX + deltaX;
+                    curY = preY + deltaY;
+                    if (curX <  col && 0 <= curX && curY < row && 0 <= curY)
+                         if (BitMap.get((int)curY).get((int)curX) == 1) {
+                             preDirection = i;
+                             Path.add(curX);
+                             Path.add(curY);
+                             preX = curX;
+                             preY = curY;
+                             break;
+                         }
+                }
+            }
+
+            //Build WayPoint
+            ArrayList<Double> wayPoint = new ArrayList<>();
+            for (int i = 0; i < Path.size(); i++){
+                if (i == Path.size() - 2 || i == 0){
+                    wayPoint.add(Path.get(i));
+                    wayPoint.add(Path.get(++i));
+                } else if (Path.get(i-2) != Path.get(i+2) && Path.get(i+3) != Path.get(i-1)) {
+                    wayPoint.add(Path.get(i));
+                    wayPoint.add(Path.get(++i));
+                }
+            }
+
             sc.close();
-            return new GameStage(row, col, entities, BitMap, player, wayPoint);
+            return new GameStage(row, col, entities, BitMap, player, wayPoint, maxLevel);
         }catch(IOException e) {
             System.out.println("Can't load file GameStage");
         }
         return null;
+    }
+
+    public int getMaxLevel() {
+        return maxLevel;
     }
 
     public int getRow(){return row;}
@@ -140,5 +171,66 @@ public class GameStage {
 
     public ArrayList<Double> getWayPoint(){
         return wayPoint;
+    }
+
+    public ArrayList<AbstractEntity> newLevel(String path) {
+        ArrayList<AbstractSpawner> spawners = new ArrayList<>();
+
+        for (AbstractEntity entity : entities) {
+            if (!(entity instanceof AbstractTile)) entities.remove(entity);
+            else if (entity instanceof AbstractSpawner) spawners.add((AbstractSpawner)entity);
+        }
+
+        try {
+            Scanner sc = new Scanner(new File(path));
+
+            while(sc.hasNext()){
+                String[] temp = sc.nextLine().split(" ");
+
+                if (temp[0].equals("NormalSpawner")){
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
+                    for (AbstractSpawner spawner:spawners)
+                        if (spawner instanceof NormalSpawner) {
+                            spawner.setIntervalTime(delayTime);
+                            spawner.setNumOfInterval(numOfTurn);
+                            break;
+                        }
+                } else if (temp[0].equals("BossSpawner")){
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
+                    for (AbstractSpawner spawner:spawners)
+                        if (spawner instanceof BossSpawner) {
+                            spawner.setIntervalTime(delayTime);
+                            spawner.setNumOfInterval(numOfTurn);
+                            break;
+                        }
+                } else if (temp[0].equals("SmallerSpawner")){
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
+                    for (AbstractSpawner spawner:spawners)
+                        if (spawner instanceof SmallerSpawner) {
+                            spawner.setIntervalTime(delayTime);
+                            spawner.setNumOfInterval(numOfTurn);
+                            break;
+                        }
+                } else if (temp[0].equals("TankerSpawner")){
+                    int delayTime = Integer.parseInt(temp[1]);
+                    int numOfTurn = Integer.parseInt(temp[2]);
+                    for (AbstractSpawner spawner:spawners)
+                        if (spawner instanceof TankerSpawner) {
+                            spawner.setIntervalTime(delayTime);
+                            spawner.setNumOfInterval(numOfTurn);
+                            break;
+                        }
+                }
+            }
+            sc.close();
+            return entities;
+        } catch (IOException e){
+            System.out.println("Can't load new level");
+        }
+
+        return null;
     }
 }

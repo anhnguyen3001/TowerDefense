@@ -31,16 +31,16 @@ public abstract class AbstractEnemy extends AbstractEntity implements DestroyEnt
         wayPointIndex = 0;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public int getHealth() {
         return health;
     }
 
     public double getDistancedTravelled() {
         return distancedTravelled;
+    }
+
+    public double getSpeed() {
+        return speed;
     }
 
     public int getDirection() {
@@ -109,10 +109,6 @@ public abstract class AbstractEnemy extends AbstractEntity implements DestroyEnt
             else if (direction == Config.RIGHT) setX(posX + speed);
             else setX(posX - speed);
         }
-    }
-
-    public double getSpeed() {
-        return speed;
     }
 
     public void render(GraphicsContext gc){

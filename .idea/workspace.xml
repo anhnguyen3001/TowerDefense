@@ -2,60 +2,79 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="581e7c6c-40a8-44ed-90c7-e10eab4ddcd4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/state/Display.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/state/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/state/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/ControlBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level11.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level12.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level13.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level14.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level15.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level16.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level17.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level18.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level19.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level20.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/Tile/BlankLand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/TowerInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/helper/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/state/EndGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/store/InfoTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/store/Store.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Map/towerDefense_tile287.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Map/towerDefense_tile289.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/bk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/youlose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/youwin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Button/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Button/youLose.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/AbstractEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/AbstractEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Bullet/AbstractBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bullet/AbstractBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Bullet/MachineGunBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bullet/MachineGunBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Bullet/NormalBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bullet/NormalBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Bullet/SniperBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bullet/SniperBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Enemy/AbstractEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Enemy/AbstractEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Enemy/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Enemy/BossEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Enemy/Enemy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameEntity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Handle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Handle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Mountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Mountain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Store.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Road.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Road.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/AbstractSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/AbstractSpawner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/SmallerSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/SmallerSpawner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/TankerSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/TankerSpawner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Target.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/AbstractTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/AbstractTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/MachineGunTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/MachineGunTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/NormalTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/SniperTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/SniperTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/demo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/demo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Sample.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Sample.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/AbstractEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/AbstractEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/state/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/state/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/state/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/state/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/state/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Bullet/AbstractBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Bullet/AbstractBullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Bullet/MachineGunBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Bullet/MachineGunBullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Bullet/NormalBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Bullet/NormalBullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Bullet/SniperBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Bullet/SniperBullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Config.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/AbstractEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/AbstractEnemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/Enemy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/GameEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/BossEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/BossEnemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/NormalEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/NormalEnemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/SmallerEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/SmallerEnemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/TankerEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/TankerEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/GameField.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/GameField.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/GameStage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/GameStage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Handle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Handle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Store.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Mountain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Mountain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Store.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Road.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Road.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/AbstractSpawner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/AbstractSpawner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/SmallerSpawner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/SmallerSpawner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/TankerSpawner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/TankerSpawner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Target.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Target.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/AbstractTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/AbstractTower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/MachineGunTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/MachineGunTower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/NormalTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/NormalTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/SniperTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/SniperTower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/state/Display.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/state/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/state/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/state/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/state/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/state/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/state/Menu.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,12 +95,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1TMQOzYOIrDppu19jbaSoktNeOZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$USER_HOME$/eclipse-workspace/Game" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -115,7 +138,7 @@
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\HA\UET\openjfx-13.0.1_windows-x64_bin-sdk\javafx-sdk-13.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="game.state.*" />
+          <option name="PATTERN" value="game.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,6 +183,21 @@
       <workItem from="1573545678031" duration="5914000" />
       <workItem from="1573560493774" duration="7290000" />
       <workItem from="1573571870514" duration="7198000" />
+      <workItem from="1573912724141" duration="10667000" />
+      <workItem from="1573960847585" duration="957000" />
+      <workItem from="1573963263298" duration="84000" />
+      <workItem from="1573964073195" duration="633000" />
+      <workItem from="1573975434762" duration="837000" />
+      <workItem from="1573976721144" duration="2644000" />
+      <workItem from="1573980469926" duration="2148000" />
+      <workItem from="1573992824208" duration="3938000" />
+      <workItem from="1574004030413" duration="9335000" />
+      <workItem from="1574042834708" duration="5858000" />
+      <workItem from="1574064630579" duration="3248000" />
+      <workItem from="1574080586492" duration="13195000" />
+      <workItem from="1574096163090" duration="5404000" />
+      <workItem from="1574123778799" duration="3812000" />
+      <workItem from="1574253385227" duration="8829000" />
     </task>
     <servers />
   </component>
@@ -178,5 +216,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
