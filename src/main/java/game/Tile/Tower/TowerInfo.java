@@ -29,13 +29,15 @@ public class TowerInfo {
         gc.setFont(Font.font("Roboto Mono", 18));
 
         gc.fillText("Level: ", startX + 0.1 * SIZE_TILE, startY + 0.5 * SIZE_TILE);
-        gc.fillText(level, width - SIZE_TILE * 0.5, startY + 0.5 * SIZE_TILE);
-
         gc.fillText("Range: ", startX + 0.1 * SIZE_TILE, startY +  1 * SIZE_TILE);
-        gc.fillText(range, width - SIZE_TILE * 0.5, startY +  1 * SIZE_TILE);
-
         gc.fillText("Damage: ", startX + 0.1 * SIZE_TILE, startY + 1.5 * SIZE_TILE);
-        gc.fillText(damage, width - SIZE_TILE * 0.5, startY + 1.5 * SIZE_TILE);
+
+        gc.setTextAlign(TextAlignment.RIGHT);
+        gc.fillText(level, width - SIZE_TILE * 0.2, startY + 0.5 * SIZE_TILE);
+        gc.fillText(range, width - SIZE_TILE * 0.2, startY +  1 * SIZE_TILE);
+        gc.fillText(damage, width - SIZE_TILE * 0.2, startY + 1.5 * SIZE_TILE);
+
+        gc.setTextAlign(TextAlignment.LEFT);
 
         //Upgrade Tower Info
         if (tower.canUpgrade()) {
@@ -49,18 +51,21 @@ public class TowerInfo {
             gc.fillText("Upgrade", startX + 0.8 * SIZE_TILE, startY + 2.5 * SIZE_TILE);
 
             gc.fillText("Range: ", startX + 0.1 * SIZE_TILE, startY + 3 * SIZE_TILE);
-            gc.fillText(damage, width - SIZE_TILE * 0.5, startY + 3 * SIZE_TILE);
-
             gc.fillText("Damage: ", startX + 0.1 * SIZE_TILE, startY + 3.5 * SIZE_TILE);
-            gc.fillText(range, width - SIZE_TILE * 0.5, startY + 3.5 * SIZE_TILE);
-
             gc.fillText("Price: ", startX + 0.1 * SIZE_TILE, startY + 4 * SIZE_TILE);
-            gc.fillText(price, width - SIZE_TILE * 0.5, startY + 4 * SIZE_TILE);
+
+            gc.setTextAlign(TextAlignment.RIGHT);
+            gc.fillText(price, width - SIZE_TILE * 0.2, startY + 4 * SIZE_TILE);
+            gc.fillText(damage, width - SIZE_TILE * 0.2, startY + 3 * SIZE_TILE);
+            gc.fillText(range, width - SIZE_TILE * 0.2, startY + 3.5 * SIZE_TILE);
+
+            gc.setTextAlign(TextAlignment.LEFT);
         }
 
         //Sell Value
         String sellValue = Integer.toString(tower.getSellValue());
         gc.fillText("Sell\nValue: ", startX + 0.1 * SIZE_TILE, startY + 5 * SIZE_TILE);
-        gc.fillText(sellValue, width - SIZE_TILE * 0.5, startY + 5.2 * SIZE_TILE);
+        gc.setTextAlign(TextAlignment.RIGHT);
+        gc.fillText(sellValue, width - SIZE_TILE * 0.2, startY + 5.2 * SIZE_TILE);
     }
 }

@@ -27,9 +27,9 @@ public class InfoTable {
         gc.fillText("Price: ", x + SIZE_TILE*0.2, y + SIZE_TILE * 3.1);
 
         gc.setTextAlign(TextAlignment.RIGHT);
-        gc.fillText(Integer.toString(fireRate), width - SIZE_TILE * 0.5, y + 0.8 * SIZE_TILE);
-        gc.fillText(Integer.toString(damage), width - SIZE_TILE * 0.5, y + 1.5 *SIZE_TILE);
-        gc.fillText(Double.toString(range), width - SIZE_TILE * 0.5, y + 2.3 * SIZE_TILE);
-        gc.fillText(Integer.toString(price), width - SIZE_TILE * 0.5, y + 3.1 * SIZE_TILE);
+        gc.fillText(Integer.toString(fireRate), width - SIZE_TILE * 0.2, y + 0.8 * SIZE_TILE);
+        gc.fillText(Integer.toString(damage), width - SIZE_TILE * 0.2, y + 1.5 *SIZE_TILE);
+        gc.fillText(Double.toString(range), width - SIZE_TILE * 0.2, y + 2.3 * SIZE_TILE);
+        gc.fillText(Integer.toString(price), width - SIZE_TILE * 0.2, y + 3.1 * SIZE_TILE);
     }
 }
