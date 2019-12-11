@@ -28,7 +28,7 @@ public class BossEnemy extends AbstractEnemy{
             double ratio = getHealth() / (double)Config.BOSS_E_Blood;
 
             gc.setFill(Color.GREEN);
-           gc.fillRect(x * sizeTile, y * sizeTile, widthBar * ratio, heightBar);
+            gc.fillRect(x * sizeTile, y * sizeTile, widthBar * ratio, heightBar);
         }
     }
 

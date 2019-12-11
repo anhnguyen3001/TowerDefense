@@ -26,7 +26,7 @@ public class Asset {
     public static Image MACHINEGUNTOWER;
     public static Image SNIPER_TOWER;
     public static Image FULL_ROCKET_TOWER;
-    
+
     public static void loadAsset(String maptype){
         String path = "file:src/main/resources/AssetsKit_2/PNG/Map/" + maptype + "\\";
         System.out.println(maptype);
@@ -56,7 +56,7 @@ public class Asset {
         SNIPER_TOWER = new Image(path + "towerDefense_tile291.png");
         FULL_ROCKET_TOWER = new Image( path + "towerDefense_tile206.png");
     }
-    
+
     public static Image getBaseImage(int type){
         switch (type){
             case (0): return BLANK_LAND;

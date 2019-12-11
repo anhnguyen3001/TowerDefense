@@ -1,27 +1,22 @@
-medium
+easy
 10x16
-0 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 
-1 1 1 1 1 0 0 0 0 0 2 0 0 0 1 0 
-0 0 0 0 1 0 2 0 0 0 0 0 2 0 1 0 
-0 2 0 0 1 1 1 1 0 0 0 0 0 0 1 0 
-0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 
-0 0 0 0 3 0 0 0 0 0 0 1 0 0 0 0 
-0 0 3 0 0 0 0 0 2 0 0 1 0 0 0 0 
-0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
-1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 
-0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 
-StartEnd 0.0 1.0 0.0 8.0 14.0 0.0 0.0 8.0 
-NormalSpawner -499 10 0
-NormalSpawner -448 10 0
-BossSpawner -499 25 0
-BossSpawner -499 25 0
-SmallerSpawner -499 5 0
-SmallerSpawner -499 5 0
-TankerSpawner -499 15 0
-TankerSpawner -499 15 0
-FlyingSpawner -499 15 0
-FlyingSpawner -499 15 0
-NormalTower 7.0 5.0 -259 1
-Player pl 10 25
+0 0 0 0 2 0 3 0 0 0 0 0 0 0 0 0 
+0 2 0 0 0 0 0 0 2 0 0 0 0 0 0 3 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 1 0 0 0 0 0 2 0 0 0 0 0 2 
+3 3 0 1 0 0 0 0 0 0 0 0 0 0 0 2 
+3 3 0 1 1 1 1 1 1 1 1 1 1 1 1 0 
+0 0 2 0 0 0 0 0 0 0 0 3 0 0 1 0 
+2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 
+2 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 
+StartEnd 15.0 2.0 0.0 8.0 
+NormalSpawner -958 20 0
+BossSpawner -958 40 0
+SmallerSpawner -958 30 0
+TankerSpawner -958 30 0
+FlyingSpawner -917 20 0
+NormalTower 4.0 3.0 -598 1
+Player d 13 25
 MaxLevel 20
 CurrentLevel 1

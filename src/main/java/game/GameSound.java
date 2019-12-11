@@ -48,7 +48,7 @@ public class GameSound {
                 gameMusic.seek(Duration.ZERO);
             }
         });
-       gameMusic.setAutoPlay(true);
+        gameMusic.setAutoPlay(true);
 
     }
 

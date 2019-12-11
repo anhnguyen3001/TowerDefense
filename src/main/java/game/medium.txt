@@ -23,4 +23,3 @@ TankerSpawner 0 15 0
 TankerSpawner 0 15 0
 FlyingSpawner 0 15 0
 FlyingSpawner 0 15 0
-

@@ -19,6 +19,5 @@ public class FreezeBullet extends AbstractBullet{
         AbstractEnemy target = getTarget();
         target.setDelayTime(delayDamage);
         target.setDelayRatio(delayRatio);
-        System.out.println(delayRatio);
     }
 }

@@ -13,8 +13,8 @@ easy
 StartEnd 15 2 0 8
 MaxLevel 20
 CurrentLevel 1
-NormalSpawner 0 20 0
+NormalSpawner 0 20 5
 BossSpawner 0 40 0
 SmallerSpawner 0 30 0
 TankerSpawner 0 30 0
-FlyingSpawner 0 20 2
+FlyingSpawner 0 20 0

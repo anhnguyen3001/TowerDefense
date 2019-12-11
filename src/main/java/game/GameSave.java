@@ -37,7 +37,7 @@ public class GameSave {
             for (int i = 0; i < wayPoint.size(); i++){
                 int length = wayPoint.get(i).size();
                 startEnd += Double.toString(wayPoint.get(i).get(0)) + " " + Double.toString(wayPoint.get(i).get(1))
-                    + " " + Double.toString(wayPoint.get(i).get(length - 2)) + " " + Double.toString(wayPoint.get(i).get(length - 1)) + " ";
+                        + " " + Double.toString(wayPoint.get(i).get(length - 2)) + " " + Double.toString(wayPoint.get(i).get(length - 1)) + " ";
             }
             startEnd += "\n";
             writer.write(startEnd);
