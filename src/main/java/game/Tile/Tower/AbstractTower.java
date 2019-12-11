@@ -33,7 +33,7 @@ public abstract class AbstractTower extends AbstractTile implements UpdateEntity
         public void handle(MouseEvent event) {
             int tileSize = Config.SIZE_TILE;
             if (event.getX() >= getX() * tileSize && event.getX() <= (getX() + 1) * tileSize
-             && event.getY() >= getY() * tileSize && event.getY() <= (getY() + 1) * tileSize){
+                    && event.getY() >= getY() * tileSize && event.getY() <= (getY() + 1) * tileSize){
                 hasClicked = !hasClicked;
             }
         }

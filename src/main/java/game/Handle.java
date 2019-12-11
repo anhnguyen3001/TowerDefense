@@ -13,10 +13,10 @@ public class Handle implements EventHandler<MouseEvent>{
     private GameField field;
     private Store store;
     private Rectangle music;
+    private boolean onMusic;
 
     private int towerType;
     private boolean clickSellUpgrade;
-    private boolean onMusic;
 
     private ImageView ivTower;
     private ImageView ivSell;
@@ -27,10 +27,10 @@ public class Handle implements EventHandler<MouseEvent>{
     public Handle(GameField field, Store store, Group root, Rectangle music){
         this.field = field;
         this.store = store;
-        this.music = music;
         towerType = 0;
         land = null;
         clickSellUpgrade = false;
+        this.music = music;
         onMusic = true;
         ivTower = new ImageView();
         root.getChildren().add(ivTower);
@@ -121,8 +121,8 @@ public class Handle implements EventHandler<MouseEvent>{
         if (mouseX >= ivSellX && mouseX <= ivSellX + ivSellW && mouseY >= ivSellY && mouseY <= ivSellY + ivSellH)
             field.sellTower(land);
         else if (mouseX >= ivUpgradeX && mouseX <= ivUpgradeX + ivUpgradeW
-              && mouseY >= ivUpgradeY && mouseY <= ivUpgradeY + ivUpgradeH)
-                    field.upgradeTower(land.getTower());
+                && mouseY >= ivUpgradeY && mouseY <= ivUpgradeY + ivUpgradeH)
+            field.upgradeTower(land.getTower());
 
         if (land.getTower() != null) land.getTower().setHasClicked(false);
         clickSellUpgrade = false;
@@ -142,7 +142,7 @@ public class Handle implements EventHandler<MouseEvent>{
         } else{
             if (music.contains(mouseX, mouseY)) onMusic = !onMusic;
             else chooseTower(mouseX, mouseY);
-            if (clickSellUpgrade) {
+            if (clickSellUpgrade){
                 clickSellUpgrade = false;
                 ivSell.setVisible(false);
                 ivUpgrade.setVisible(false);
@@ -160,7 +160,7 @@ public class Handle implements EventHandler<MouseEvent>{
             else if (store.rocketTower.contains(mouseX, mouseY)) store.setTowerShow(Config.ROCKET_TOWER);
             else if (store.freezeTower.contains(mouseX, mouseY)) store.setTowerShow(Config.FREEZE_TOWER);
             else store.setTowerShow(0);
-        }
+        } else store.setTowerShow(0);
 
         if (ivTower != null){
             ivTower.setTranslateX((mouseX - 0.5) * Config.SIZE_TILE);

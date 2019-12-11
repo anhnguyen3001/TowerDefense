@@ -10,7 +10,7 @@ public class TowerInfo {
     public static void render(GraphicsContext gc, AbstractTower tower){
         int SIZE_TILE = Config.SIZE_TILE;
         int width = Config.SCREEN_WIDTH;
-       // int height = Config.SCREEN_HEIGHT;
+        // int height = Config.SCREEN_HEIGHT;
 
         double startX = 16.1 * SIZE_TILE;
         double startY =  4.2 * SIZE_TILE;

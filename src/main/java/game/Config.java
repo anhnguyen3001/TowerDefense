@@ -22,8 +22,8 @@ public class Config {
 
 	//Menu
 	public static final int ENTER_NAME = 1;
-    public static final int NEW_GAME = 2;
-    public static final int CONTINUE = 3;
+	public static final int NEW_GAME = 2;
+	public static final int CONTINUE = 3;
 	public static final int HIGHSCORE = 4;
 
 	//Enemy
@@ -107,7 +107,7 @@ public class Config {
 	public static double ROCKET_BULLET_SPEED = 0.2;
 	//Freeze Bullet
 	public static double FREEZE_BULLET_SPEED = 0.2;
-	
+
 	//IMGPath
 	public static final String PATH_MAP = "file:src/main/resources/AssetsKit_2/PNG/Default size/";
 	public static final String PATH_BUTTON = "file:src/main/resources/Button/";
@@ -117,7 +117,7 @@ public class Config {
 
 	//BaseTower Path
 	public static final String BASE_SNIPER_T_PATH = PATH_MAP + "towerDefense_tile268.png";
-    public static final String BASE_FREEZE_T_PATH = PATH_MAP + "towerDefense_tile269.png";
+	public static final String BASE_FREEZE_T_PATH = PATH_MAP + "towerDefense_tile269.png";
 
 	//Bullet Path
 	public static final String NORMAL_BULLET_PATH = PATH_MAP + "towerDefense_tile295.png";
@@ -127,21 +127,21 @@ public class Config {
 	public static final String FREEZE_BULLET_PATH = PATH_MAP + "towerDefense_tile275.png";
 
 	//Button Game
-    public static final String BUTTON_NEXT_WAVE = PATH_BUTTON + "Nextwave.png";
-    public static final String BUTTON_START_GAME = PATH_BUTTON + "Start.png";
-    public static final String BUTTON_HIGH_SCORE = PATH_BUTTON + "HighScore.png";
-    public static final String BUTTON_QUIT_GAME = PATH_BUTTON + "QuitGame.png";
+	public static final String BUTTON_NEXT_WAVE = PATH_BUTTON + "Nextwave.png";
+	public static final String BUTTON_START_GAME = PATH_BUTTON + "Start.png";
+	public static final String BUTTON_HIGH_SCORE = PATH_BUTTON + "HighScore.png";
+	public static final String BUTTON_QUIT_GAME = PATH_BUTTON + "QuitGame.png";
 	public static final String BUTTON_CONTINUE = PATH_BUTTON + "Continue.png";
 	public static final String BUTTON_PAUSE = PATH_BUTTON + "Pause.png";
 	public static final String BUTTON_RESUME = PATH_BUTTON + "Resume.png";
 	public static final String MUSIC_ON = PATH_BUTTON + "on.png";
 	public static final String MUSIC_OFF = PATH_BUTTON + "off.png";
 
-    //EndGame
+	//EndGame
 	public static final String YOU_WIN = "file:src/main/resources/AssetsKit_2/youwin.png";
 	public static final String YOU_LOSE = "file:src/main/resources/AssetsKit_2/youlose.png";
 
-    //Upgrade Sell
+	//Upgrade Sell
 	public static final String UPGRADE = PATH_MAP + "towerDefense_tile289.png";
 	public static final String SELL = PATH_MAP + "towerDefense_tile287.png";
 

@@ -1,21 +1,20 @@
 package game.state;
 
 import game.*;
-import game.Display;
 import game.helper.ListScore;
 
 public class Game extends State{
-    private game.Display display;
+    private Display display;
     private EndGame endGame;
     private GameField field;
-    private GameStage gameStage;
     private UI ui;
     private Player player;
 
     public void loadGame(String path, Display display){
         GameSound.gameMusic();
         this.display = display;
-        gameStage = GameStage.load(path, player);
+        GameStage gameStage = GameStage.load(path, player);
+        if (gameStage == null) System.exit(0);
         field = new GameField(gameStage, player);
         ui = new UI(display, field);
     }

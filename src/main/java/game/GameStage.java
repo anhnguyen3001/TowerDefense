@@ -54,7 +54,7 @@ public class GameStage {
         return wayPoint;
     }
 
-    public static GameStage load(String path, Player player)  {
+    public static game.GameStage load(String path, Player player)  {
         try {
             Scanner sc = new Scanner(new File("src//main//java//game//" + path + ".txt"));
 
@@ -178,88 +178,88 @@ public class GameStage {
             HashMap<String, Integer> spawner = new HashMap<>();
 
             while (sc.hasNext()) {
-                    temp = sc.nextLine().split(" ");
+                temp = sc.nextLine().split(" ");
 
-                    if (temp[0].contains("Spawner")){
-                        int index = 0;
-                        if (!spawner.containsKey(temp[0])) spawner.put(temp[0], index);
-                        else {
-                            index = spawner.get(temp[0]) + 1;
-                            spawner.replace(temp[0], index);
-                        }
+                if (temp[0].contains("Spawner")){
+                    int index = 0;
+                    if (!spawner.containsKey(temp[0])) spawner.put(temp[0], index);
+                    else {
+                        index = spawner.get(temp[0]) + 1;
+                        spawner.replace(temp[0], index);
+                    }
 
-                        double x = wayPoint.get(index).get(0);
-                        double y = wayPoint.get(index).get(1);
-                        int tick = Integer.parseInt(temp[1]);
-                        int delayTime = Integer.parseInt(temp[2]);
-                        int numOfTurn = Integer.parseInt(temp[3]);
+                    double x = wayPoint.get(index).get(0);
+                    double y = wayPoint.get(index).get(1);
+                    int tick = Integer.parseInt(temp[1]);
+                    int delayTime = Integer.parseInt(temp[2]);
+                    int numOfTurn = Integer.parseInt(temp[3]);
 
-                        if (temp[0].equals("NormalSpawner")) entities.add(new NormalSpawner(x, y, tick, delayTime, numOfTurn));
-                        else if (temp[0].equals("SmallerSpawner")) entities.add(new SmallerSpawner(x, y, tick, delayTime, numOfTurn));
-                        else if (temp[0].equals("BossSpawner")) entities.add(new BossSpawner(x, y, tick, delayTime, numOfTurn));
-                        else if (temp[0].equals("FlyingSpawner")) entities.add(new FlyingSpawner(x, y, tick, delayTime, numOfTurn));
-                        else if (temp[0].equals("TankerSpawner")) entities.add(new TankerSpawner(x, y, tick, delayTime, numOfTurn));
-                    } else if (temp[0].equals("Player")){
-                        String name = temp[1];
-                        int live = Integer.parseInt(temp[2]);
-                        int coin = Integer.parseInt(temp[3]);
+                    if (temp[0].equals("NormalSpawner")) entities.add(new NormalSpawner(x, y, tick, delayTime, numOfTurn));
+                    else if (temp[0].equals("SmallerSpawner")) entities.add(new SmallerSpawner(x, y, tick, delayTime, numOfTurn));
+                    else if (temp[0].equals("BossSpawner")) entities.add(new BossSpawner(x, y, tick, delayTime, numOfTurn));
+                    else if (temp[0].equals("FlyingSpawner")) entities.add(new FlyingSpawner(x, y, tick, delayTime, numOfTurn));
+                    else if (temp[0].equals("TankerSpawner")) entities.add(new TankerSpawner(x, y, tick, delayTime, numOfTurn));
+                } else if (temp[0].equals("Player")){
+                    String name = temp[1];
+                    int live = Integer.parseInt(temp[2]);
+                    int coin = Integer.parseInt(temp[3]);
 
-                        player.setName(name);
-                        player.setLive(live);
-                        player.setCoin(coin);
-                    } else if (temp[0].equals("MaxLevel")){
-                        maxLevel = Integer.parseInt(temp[1]);
-                    } else if (temp[0].equals("CurrentLevel")){
-                        currentLevel = Integer.parseInt(temp[1]);
-                    } else if (temp[0].contains("Enemy")){
-                        double startX = Double.parseDouble(temp[1]);
-                        double startY = Double.parseDouble(temp[2]);
-                        double endX = Double.parseDouble(temp[3]);
-                        double endY = Double.parseDouble(temp[4]);
-                        double x = Double.parseDouble(temp[5]);
-                        double y = Double.parseDouble(temp[6]);
-                        int blood = Integer.parseInt(temp[7]);
-                        int waypointIndex = 0;
+                    player.setName(name);
+                    player.setLive(live);
+                    player.setCoin(coin);
+                } else if (temp[0].equals("MaxLevel")){
+                    maxLevel = Integer.parseInt(temp[1]);
+                } else if (temp[0].equals("CurrentLevel")){
+                    currentLevel = Integer.parseInt(temp[1]);
+                } else if (temp[0].contains("Enemy")){
+                    double startX = Double.parseDouble(temp[1]);
+                    double startY = Double.parseDouble(temp[2]);
+                    double endX = Double.parseDouble(temp[3]);
+                    double endY = Double.parseDouble(temp[4]);
+                    double x = Double.parseDouble(temp[5]);
+                    double y = Double.parseDouble(temp[6]);
+                    int blood = Integer.parseInt(temp[7]);
+                    int waypointIndex = 0;
 
-                        for (int i = 0; i < wayPoint.size(); i++){
-                            int size = wayPoint.get(i).size();
+                    for (int i = 0; i < wayPoint.size(); i++){
+                        int size = wayPoint.get(i).size();
 
-                            if (wayPoint.get(i).get(0) == startX && wayPoint.get(i).get(1) == startY
-                             && wayPoint.get(i).get(size - 2) == endX && wayPoint.get(i).get(size - 1) == endY) {
-                                waypointIndex = i;
-                                break;
-                            }
-                        }
-
-                        if (temp[0].equals("NormalEnemy")) entities.add(new NormalEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
-                        else if (temp[0].equals("SmallerEnemy")) entities.add(new SmallerEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
-                        else if (temp[0].equals("BossEnemy")) entities.add(new BossEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
-                        else if (temp[0].equals("TankerEnemy")) entities.add(new TankerEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
-                        else if (temp[0].equals("FlyingEnemy")) entities.add(new FlyingEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
-                    } else if (temp[0].contains("Tower")){
-                        double x = Double.parseDouble(temp[1]);
-                        double y = Double.parseDouble(temp[2]);
-                        int tick = Integer.parseInt(temp[3]);
-                        int level = Integer.parseInt(temp[4]);
-
-                         AbstractTower tower = null;
-                         if (temp[0].equals("FreezeTower")) tower = new FreezeTower(x, y, tick, level);
-                         else if (temp[0].equals("MachineGunTower")) tower = new MachineGunTower(x, y, tick, level);
-                         else if (temp[0].equals("NormalTower")) tower = new NormalTower(x, y, tick, level);
-                         else if (temp[0].equals("RocketTower")) tower = new RocketTower(x, y, tick, level);
-                         else if (temp[0].equals("SniperTower")) tower = new SniperTower(x, y, tick, level);
-
-                        if (tower != null) {
-                            entities.add(tower);
-
-                            ((BlankLand) entities.get((int) (y * col + x))).setTower(tower);
-                            ((BlankLand) entities.get((int) (y * col + x))).setHasTower(true);
+                        if (wayPoint.get(i).get(0) == startX && wayPoint.get(i).get(1) == startY
+                                && wayPoint.get(i).get(size - 2) == endX && wayPoint.get(i).get(size - 1) == endY) {
+                            waypointIndex = i;
+                            break;
                         }
                     }
+
+                    if (temp[0].equals("NormalEnemy")) entities.add(new NormalEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
+                    else if (temp[0].equals("SmallerEnemy")) entities.add(new SmallerEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
+                    else if (temp[0].equals("BossEnemy")) entities.add(new BossEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
+                    else if (temp[0].equals("TankerEnemy")) entities.add(new TankerEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
+                    else if (temp[0].equals("FlyingEnemy")) entities.add(new FlyingEnemy(wayPoint.get(waypointIndex), x, y, blood, waypointIndex));
+                } else if (temp[0].contains("Tower")){
+                    double x = Double.parseDouble(temp[1]);
+                    double y = Double.parseDouble(temp[2]);
+                    int tick = Integer.parseInt(temp[3]);
+                    int level = Integer.parseInt(temp[4]);
+
+                    AbstractTower tower = null;
+                    if (temp[0].equals("FreezeTower")) tower = new FreezeTower(x, y, tick, level);
+                    else if (temp[0].equals("MachineGunTower")) tower = new MachineGunTower(x, y, tick, level);
+                    else if (temp[0].equals("NormalTower")) tower = new NormalTower(x, y, tick, level);
+                    else if (temp[0].equals("RocketTower")) tower = new RocketTower(x, y, tick, level);
+                    else if (temp[0].equals("SniperTower")) tower = new SniperTower(x, y, tick, level);
+
+                    if (tower != null) {
+                        entities.add(tower);
+
+                        ((BlankLand) entities.get((int) (y * col + x))).setTower(tower);
+                        ((BlankLand) entities.get((int) (y * col + x))).setHasTower(true);
+                    }
                 }
-                sc.close();
-                return new GameStage(row, col, entities, maptype, wayPoint, maxLevel, currentLevel);
-            }catch(IOException e) {
+            }
+            sc.close();
+            return new game.GameStage(row, col, entities, maptype, wayPoint, maxLevel, currentLevel);
+        }catch(IOException e) {
             System.out.println("Can't load file GameStage");
         }
         return null;

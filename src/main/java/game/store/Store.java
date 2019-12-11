@@ -30,7 +30,7 @@ public class Store {
 
         machinegunTower = new Rectangle(x, y + 1, size, size, Asset.MACHINEGUNTOWER);
 
-        rocketTower = new Rectangle(sniperTower.getMinX(), machinegunTower.getMinY(), size, size, Asset.ROCKET_TOWER);
+        rocketTower = new Rectangle(sniperTower.getMinX(), machinegunTower.getMinY(), size, size, Asset.FULL_ROCKET_TOWER);
 
         freezeTower = new Rectangle(x, rocketTower.getMinY() + 1, size, size, Asset.FREEZE_TOWER);
 
@@ -58,17 +58,17 @@ public class Store {
         switch (towerShow){
             case Config.NORMAL_TOWER: {
                 new InfoTable().renderInfoTable(gc, Config.NORMAL_T_Speed, Config.NORMAL_T_DAMAGE,
-                                            Config.NORMAL_T_Range, Config.NORMAL_T_Cost);
+                        Config.NORMAL_T_Range, Config.NORMAL_T_Cost);
                 break;
             }
             case Config.SNIPER_TOWER:{
                 new InfoTable().renderInfoTable(gc, Config.SNIPER_T_Speed, Config.SNIPER_T_DAMAGE,
-                                            Config.SNIPER_T_Range, Config.SNIPER_T_Cost);
+                        Config.SNIPER_T_Range, Config.SNIPER_T_Cost);
                 break;
             }
             case Config.MACHINE_GUN_TOWER:{
                 new InfoTable().renderInfoTable(gc, Config.MACHINEGUN_T_Speed, Config.MACHINEGUN_T_DAMAGE,
-                                            Config.MACHINEGUN_T_Range, Config.MACHINEGUN_T_Cost);
+                        Config.MACHINEGUN_T_Range, Config.MACHINEGUN_T_Cost);
                 break;
             }
             case Config.ROCKET_TOWER:{

@@ -31,8 +31,8 @@ public class Main extends Application {
 
             @Override
             public void handle(long now) {
-               // else// if (now - lastTime >= Config.ELAPSE_TIME)
-                    {
+                // else// if (now - lastTime >= Config.ELAPSE_TIME)
+                {
                     State.getState().render();
                     State.getState().update();
                     lastTime = now;

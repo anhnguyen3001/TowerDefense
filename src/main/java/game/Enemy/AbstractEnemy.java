@@ -169,15 +169,15 @@ public abstract class AbstractEnemy extends AbstractEntity implements DestroyEnt
         else posX -= speed * (1-delayRatio);
 
         if (delayTime == 0) {
-            ArrayList<AbstractEnemy> enemies = field.getEnemies();
+            ArrayList<game.Enemy.AbstractEnemy> enemies = field.getEnemies();
 
-            for (AbstractEnemy enemy : enemies) {
+            for (game.Enemy.AbstractEnemy enemy : enemies) {
                 if (this.getClass().equals(enemy.getClass()) && !this.equals(enemy)
-                && enemy.getDelayTime() == 0 && getWayPointXY().equals(enemy.getWayPointXY())) {
+                        && enemy.getDelayTime() == 0 && getWayPointXY().equals(enemy.getWayPointXY())) {
                     double distance = AbstractEntity.evaluateDistance(enemy.getX(), enemy.getY(), posX, posY);
 
                     if (enemy.getDelayTime() != 0 && ((enemy.getDirection() == direction && distance <= 3 * speed)
-                    || (Math.abs(direction - enemy.getDirection()) == 2 && distance <= 0.5 && priority > enemy.getPriority()))){
+                            || (Math.abs(direction - enemy.getDirection()) == 2 && distance <= 0.5 && priority > enemy.getPriority()))){
                         if (reachedWaypoint){
                             wayPointIndex-=2;
                             reachedWaypoint = false;
@@ -215,8 +215,8 @@ public abstract class AbstractEnemy extends AbstractEntity implements DestroyEnt
     public String toString(){
         int size = wayPoint.size();
         String res = Double.toString(wayPoint.get(0)) + " " + Double.toString(wayPoint.get(1)) + " "
-                   + Double.toString(wayPoint.get(size - 2)) + " " + Double.toString(wayPoint.get(size - 1)) + " "
-                   + super.toString() + Integer.toString(health) + "\n";
+                + Double.toString(wayPoint.get(size - 2)) + " " + Double.toString(wayPoint.get(size - 1)) + " "
+                + super.toString() + Integer.toString(health) + "\n";
         return res;
     }
 }
