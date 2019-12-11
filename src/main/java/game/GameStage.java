@@ -54,7 +54,7 @@ public class GameStage {
         return wayPoint;
     }
 
-    public static game.GameStage load(String path, Player player)  {
+    public static GameStage load(String path, Player player)  {
         try {
             Scanner sc = new Scanner(new File("src//main//java//game//" + path + ".txt"));
 
@@ -258,7 +258,7 @@ public class GameStage {
                 }
             }
             sc.close();
-            return new game.GameStage(row, col, entities, maptype, wayPoint, maxLevel, currentLevel);
+            return new GameStage(row, col, entities, maptype, wayPoint, maxLevel, currentLevel);
         }catch(IOException e) {
             System.out.println("Can't load file GameStage");
         }

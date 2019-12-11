@@ -169,9 +169,9 @@ public abstract class AbstractEnemy extends AbstractEntity implements DestroyEnt
         else posX -= speed * (1-delayRatio);
 
         if (delayTime == 0) {
-            ArrayList<game.Enemy.AbstractEnemy> enemies = field.getEnemies();
+            ArrayList<AbstractEnemy> enemies = field.getEnemies();
 
-            for (game.Enemy.AbstractEnemy enemy : enemies) {
+            for (AbstractEnemy enemy : enemies) {
                 if (this.getClass().equals(enemy.getClass()) && !this.equals(enemy)
                         && enemy.getDelayTime() == 0 && getWayPointXY().equals(enemy.getWayPointXY())) {
                     double distance = AbstractEntity.evaluateDistance(enemy.getX(), enemy.getY(), posX, posY);

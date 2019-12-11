@@ -2,60 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="581e7c6c-40a8-44ed-90c7-e10eab4ddcd4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/ControlBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level11.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level12.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level13.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level14.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level15.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level16.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level17.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level18.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level19.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level20.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level8.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/LevelInfo/level9.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/Tile/BlankLand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/TowerInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/helper/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/state/EndGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/store/InfoTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/store/Store.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Map/towerDefense_tile287.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Map/towerDefense_tile289.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/bk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/youlose.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AssetsKit_2/youwin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Button/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Button/youLose.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Bullet/AbstractBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bullet/AbstractBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Bullet/FreezeBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Bullet/FreezeBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/ControlBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/ControlBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Enemy/AbstractEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Enemy/AbstractEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Enemy/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Enemy/BossEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameSound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameSound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Handle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Handle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/HighScore/hseasy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/HighScore/hseasy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/HighScore/hshard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/HighScore/hshard.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/HighScore/hsmedium.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/HighScore/hsmedium.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/SaveGame.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/SaveGame.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Store.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/BlankLand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/BlankLand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Road.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Road.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/AbstractSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Spawner/AbstractSpawner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/AbstractTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/AbstractTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/MachineGunTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/MachineGunTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/NormalTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/SniperTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/SniperTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/demo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/demo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/state/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/TowerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Tile/Tower/TowerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/demo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/easy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/easy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/helper/Asset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/helper/Asset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/helper/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/helper/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/level2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/medium.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/medium.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/state/Display.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/state/EndGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/state/EndGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/state/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/state/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/state/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/state/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/store/InfoTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/store/InfoTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/store/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/store/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Bullet/AbstractBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Bullet/AbstractBullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Bullet/FreezeBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Bullet/FreezeBullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/ControlBar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/ControlBar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Display.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/AbstractEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/AbstractEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/BossEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/BossEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Enemy/NormalEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Enemy/NormalEnemy.class" afterDir="false" />
@@ -66,17 +58,22 @@
       <change beforePath="$PROJECT_DIR$/target/classes/game/Handle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Handle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Store.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/BlankLand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/BlankLand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Road.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Road.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/AbstractSpawner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Spawner/AbstractSpawner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/AbstractTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/AbstractTower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/NormalTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/NormalTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/SniperTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/SniperTower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/Tile/Tower/TowerInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Tile/Tower/TowerInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/helper/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/helper/Rectangle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/state/Display.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/state/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/state/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/state/EndGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/state/EndGame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/state/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/state/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/state/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/state/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/store/InfoTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/store/InfoTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/store/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/store/Store.class" afterDir="false" />
     </list>
->>>>>>> 47ca2a29eb0cd0fd3b055bedb4d4f907163285f3
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,11 +103,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-<<<<<<< HEAD
     <property name="last_opened_file_path" value="C:/Program Files/Git/mingw64/bin/git.exe" />
-=======
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
->>>>>>> 47ca2a29eb0cd0fd3b055bedb4d4f907163285f3
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -203,7 +196,6 @@
       <workItem from="1574080586492" duration="13195000" />
       <workItem from="1574096163090" duration="5404000" />
       <workItem from="1574123778799" duration="3812000" />
-<<<<<<< HEAD
       <workItem from="1574253385227" duration="9596000" />
       <workItem from="1574264665601" duration="448000" />
       <workItem from="1574273220841" duration="1469000" />
@@ -228,11 +220,8 @@
       <workItem from="1575898266427" duration="19035000" />
       <workItem from="1575979115664" duration="38812000" />
       <workItem from="1576024566861" duration="3814000" />
-      <workItem from="1576066971713" duration="10030000" />
-      <workItem from="1576077648265" duration="1090000" />
-=======
-      <workItem from="1574253385227" duration="8829000" />
->>>>>>> 47ca2a29eb0cd0fd3b055bedb4d4f907163285f3
+      <workItem from="1576066971713" duration="14029000" />
+      <workItem from="1576084405947" duration="1046000" />
     </task>
     <servers />
   </component>
@@ -254,5 +243,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TowerDefense$Main.ic" NAME="Main Coverage Results" MODIFIED="1576081421403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>game.*</FILTER>
+    </SUITE>
   </component>
 </project>

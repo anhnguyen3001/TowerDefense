@@ -50,6 +50,14 @@ public abstract class AbstractSpawner extends AbstractTile implements UpdateEnti
         this.intervalTime = intervalTime;
     }
 
+    public void setNumOfInterval(int numOfInterval) {
+        this.numOfInterval = numOfInterval;
+    }
+
+    public void setIntervalTime(int intervalTime){
+        this.intervalTime = intervalTime;
+    }
+
     public void update(GameField field){
         --tick;
 
