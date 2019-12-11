@@ -1,78 +1,175 @@
 package game;
 
-import game.Tile.Tower.MachineGunTower;
-import game.Tile.Tower.NormalTower;
-import game.Tile.Tower.SniperTower;
+import game.Tile.BlankLand;
+import game.Tile.Tower.TowerInfo;
+import game.store.Store;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-import java.util.ArrayList;
-import java.util.Stack;
-
-public class Handle implements EventHandler<MouseEvent> {
+public class Handle implements EventHandler<MouseEvent>{
     private GameField field;
-    private ImageView iv;
-    private Stack<Object> inputType = new Stack<>();
+    private Store store;
+    private Group root;
 
-    private Image imgNormalTower = new Image(Config.NORMAL_T_PATH);
-    private Image imgSniperTower = new Image(Config.SNIPER_T_PATH);
-    private Image imgMachineGunTower = new Image(Config.MACHINE_GUN_T_PATH);
+    private int towerType;
+    private boolean clickSellUpgrade;
 
-    public Handle(GameField field){
+    private ImageView ivTower;
+    private ImageView ivSell;
+    private ImageView ivUpgrade;
+
+    private BlankLand land;
+
+    public Handle(GameField field, Store store, Group root){
         this.field = field;
-        iv = new ImageView();
-        field.getRoot().getChildren().add(iv);
+        this.store = store;
+        this.root = root;
+        towerType = 0;
+        land = null;
+        clickSellUpgrade = false;
+        ivTower = new ImageView();
+        this.root.getChildren().add(ivTower);
+
+        ivSell = new ImageView(new Image(Config.SELL));
+        ivSell.setFitHeight(35);
+        ivSell.setFitWidth(35);
+
+        ivUpgrade = new ImageView(new Image(Config.UPGRADE));
+        ivUpgrade.setFitWidth(35);
+        ivUpgrade.setFitHeight(35);
+        this.root.getChildren().addAll(ivSell, ivUpgrade);
+        ivUpgrade.setVisible(false);
+        ivSell.setVisible(false);
     }
 
-    public void mouseClickedHandler(MouseEvent e){
-        if (e.getSource() instanceof Button) {
-            iv.setImage(null);
-            if (inputType.isEmpty()) inputType.add(e.getSource());
+    private void chooseTower(double mouseX, double mouseY){
+        ivTower.setImage(null);
+        if (store.normalTower.contains(mouseX, mouseY)){
+            if (towerType == Config.NORMAL_TOWER) towerType = 0;
             else {
-                boolean hasAlreadyCliked = false;
-                if (inputType.peek() == e.getSource()) hasAlreadyCliked = true;
-                inputType.clear();
-
-                if (!hasAlreadyCliked) inputType.add(e.getSource());
+                towerType = Config.NORMAL_TOWER;
+                ivTower.setImage(store.normalTower.getImg());
             }
-        } else {
-            int x = (int) e.getX()/Config.SIZE_TILE;
-            int y = (int) e.getY()/Config.SIZE_TILE;
-
-            if (x < field.getCol() && x >= 0 && y >= 0 && y < field.getRow() && !inputType.isEmpty()) {
-                ArrayList<ArrayList<Integer>> bitmap = field.getBitMap();
-                if (bitmap.get(y).get(x) == 0){
-                    if (inputType.peek() == Store.normalTower) field.placeTower(new NormalTower(x, y));
-                    else if (inputType.peek() == Store.sniperTower) field.placeTower(new SniperTower(x, y));
-                    else field.placeTower(new MachineGunTower(x, y));
-                    bitmap.get(y).set(x, 2);
-                }
+        } else if (store.sniperTower.contains(mouseX, mouseY)){
+            if (towerType == Config.SNIPER_TOWER) towerType = 0;
+            else {
+                towerType = Config.SNIPER_TOWER;
+                ivTower.setImage(store.sniperTower.getImg());
             }
-            inputType.clear();
-            iv.setImage(null);
+        } else if (store.machinegunTower.contains(mouseX, mouseY)){
+            if (towerType == Config.MACHINE_GUN_TOWER) towerType = 0;
+            else {
+                towerType = Config.MACHINE_GUN_TOWER;
+                ivTower.setImage(store.machinegunTower.getImg());
+            }
+        } else if (store.rocketTower.contains(mouseX, mouseY)) {
+            if (towerType == Config.ROCKET_TOWER) towerType = 0;
+            else {
+                ivTower.setImage(store.rocketTower.getImg());
+                towerType = Config.ROCKET_TOWER;
+            }
+        } else if (store.freezeTower.contains(mouseX, mouseY)) {
+            if (towerType == Config.FREEZE_TOWER) towerType = 0;
+            else {
+                ivTower.setImage(store.freezeTower.getImg());
+                towerType = Config.FREEZE_TOWER;
+            }
         }
     }
 
-    public void mouseMovedHandler(MouseEvent event){
-        if (!inputType.isEmpty()){
-            double x = event.getX();
-            double y = event.getY();
+    private void buildTower(int mouseX, int mouseY){
+        field.placeTower(towerType, mouseX, mouseY);
+        towerType = 0;
+        ivTower.setImage(null);
+        if (land != null && land.getTower().isHasClicked()) land.getTower().setHasClicked(false);
+    }
 
-            if (inputType.peek() == Store.normalTower) iv.setImage(imgNormalTower);
-            else if (inputType.peek() == Store.sniperTower) iv.setImage(imgSniperTower);
-            else if (inputType.peek() == Store.machineTower) iv.setImage(imgMachineGunTower);
+    private void chooseUpgradeSell(int mouseX, int mouseY){
+        AbstractEntity entity = field.getEntities().get(field.getCol() * mouseY + mouseX);
+        if (entity instanceof BlankLand) {
+            land = (BlankLand) entity;
+            if (land.isHasTower()) {
+                ivSell.setX((entity.getX() - 0.25) * Config.SIZE_TILE);
+                ivSell.setY((entity.getY() - 0.5) * Config.SIZE_TILE);
 
-            iv.setTranslateX(x - Config.SIZE_TILE*0.5);
-            iv.setTranslateY(y - Config.SIZE_TILE*0.5);
+                ivUpgrade.setX((entity.getX() + 0.65) * Config.SIZE_TILE);
+                ivUpgrade.setY((entity.getY() - 0.5) * Config.SIZE_TILE);
+                ivUpgrade.setVisible(true);
+                ivSell.setVisible(true);
+                clickSellUpgrade = true;
+                land.getTower().setHasClicked(true);                //Set to show info table of tower
+            } else land = null;
         }
     }
 
-    @Override
+    private void upgradeSell(double mouseX, double mouseY){
+        double ivSellX = ivSell.getX()/Config.SIZE_TILE;
+        double ivSellY = ivSell.getY()/Config.SIZE_TILE;
+        double ivSellW = ivSell.getFitWidth()/Config.SIZE_TILE;
+        double ivSellH = ivSell.getFitHeight()/Config.SIZE_TILE;
+
+        double ivUpgradeX = ivUpgrade.getX()/Config.SIZE_TILE;
+        double ivUpgradeY = ivUpgrade.getY()/Config.SIZE_TILE;
+        double ivUpgradeW = ivUpgrade.getFitWidth()/Config.SIZE_TILE;
+        double ivUpgradeH = ivUpgrade.getFitHeight()/Config.SIZE_TILE;
+
+        if (mouseX >= ivSellX && mouseX <= ivSellX + ivSellW && mouseY >= ivSellY && mouseY <= ivSellY + ivSellH)
+            field.sellTower(land);
+        else if (mouseX >= ivUpgradeX && mouseX <= ivUpgradeX + ivUpgradeW
+              && mouseY >= ivUpgradeY && mouseY <= ivUpgradeY + ivUpgradeH)
+                    field.upgradeTower(land.getTower());
+
+        if (land.getTower() != null) land.getTower().setHasClicked(false);
+        clickSellUpgrade = false;
+        land = null;
+    }
+
+    public void mouseClickedHandler(double mouseX, double mouseY){
+        if (mouseY <= field.getRow() && mouseX <= field.getCol()){
+            if (!clickSellUpgrade && towerType == 0) chooseUpgradeSell((int) mouseX, (int) mouseY);
+            else {
+                if (land != null && land.getTower().isHasClicked()) land.getTower().setHasClicked(false);
+                if (towerType != 0) buildTower((int) mouseX, (int) mouseY);
+                else if (clickSellUpgrade) upgradeSell(mouseX, mouseY);
+                ivSell.setVisible(false);
+                ivUpgrade.setVisible(false);
+            }
+        } else{
+            chooseTower(mouseX, mouseY);
+            if (clickSellUpgrade){
+                clickSellUpgrade = false;
+                ivSell.setVisible(false);
+                ivUpgrade.setVisible(false);
+            }
+            if (land != null && land.getTower().isHasClicked()) land.getTower().setHasClicked(false);
+        }
+    }
+
+
+    public void mouseMovedHandler(double mouseX, double mouseY){
+        if (!clickSellUpgrade) {
+            if (store.normalTower.contains(mouseX, mouseY)) store.setTowerShow(Config.NORMAL_TOWER);
+            else if (store.sniperTower.contains(mouseX, mouseY)) store.setTowerShow(Config.SNIPER_TOWER);
+            else if (store.machinegunTower.contains(mouseX, mouseY)) store.setTowerShow(Config.MACHINE_GUN_TOWER);
+            else if (store.rocketTower.contains(mouseX, mouseY)) store.setTowerShow(Config.ROCKET_TOWER);
+            else if (store.freezeTower.contains(mouseX, mouseY)) store.setTowerShow(Config.FREEZE_TOWER);
+            else store.setTowerShow(0);
+        }
+
+        if (ivTower != null){
+            ivTower.setTranslateX((mouseX - 0.5) * Config.SIZE_TILE);
+            ivTower.setTranslateY((mouseY - 0.5) * Config.SIZE_TILE);
+        }
+    }
+
     public void handle(MouseEvent event) {
-        if (MouseEvent.MOUSE_CLICKED == event.getEventType()) mouseClickedHandler(event);
-        else if (MouseEvent.MOUSE_MOVED == event.getEventType()) mouseMovedHandler(event);
+        double mouseX = event.getX()/Config.SIZE_TILE;
+        double mouseY = event.getY()/Config.SIZE_TILE;
+
+        if (MouseEvent.MOUSE_CLICKED == event.getEventType()) mouseClickedHandler(mouseX, mouseY);
+        else if (MouseEvent.MOUSE_MOVED == event.getEventType()) mouseMovedHandler(mouseX, mouseY);
     }
 }

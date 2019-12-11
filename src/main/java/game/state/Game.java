@@ -1,55 +1,80 @@
 package game.state;
 
-import game.Config;
-import game.GameField;
-import game.GameStage;
-import game.Player;
-import javafx.animation.AnimationTimer;
-import javafx.stage.Stage;
+import game.*;
+import game.helper.Asset;
+import game.helper.ListScore;
 
-import javax.naming.CompositeName;
-
-public class Game {
+public class Game extends State{
     private Display display;
-    private Menu menu;
+    private EndGame endGame;
     private GameField field;
     private GameStage gameStage;
+    private UI ui;
     private Player player;
 
-    public Game(String gameTitle, int width, int height, Stage stage){
-        display = new Display(gameTitle, width, height, stage);
+    /**public Game(Display display){
+        this.display = display;
+    }**/
 
-        menu = new Menu(display, this);
-        menu.createMenu();
-
-        gameStage = GameStage.load("demo.txt");
-        player = gameStage.getPlayer();
+    public void loadGame(String path, Display display){
+        GameSound.gameMusic();
+        this.display = display;
+        gameStage = GameStage.load(path, player);
+        field = new GameField(gameStage, player);
+        ui = new UI(display, field);
     }
 
-    public void start(){
-        field = new GameField(gameStage, player, display.getGc(), display.getRoot());
-        setMouseHandler();
+    public void setPlayer(Player player){
+        this.player = player;
+    }
 
-        AnimationTimer timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                field.update();
-                field.render();
+    public void setEndGame(EndGame endGame) {
+        this.endGame = endGame;
+    }
 
-                if (player.getLive() <= 0) {
-                    System.out.println("You Lose");
-                    stop();
-                } else if (!field.isContinue()) {
-                    System.out.println("You win");
-                    stop();
-                }
+    public GameField getField() {
+        return field;
+    }
+
+    @Override
+    public void update() {
+        if (!ui.pauseGame()) {
+            if (player.getLive() <= 0) {
+                new ListScore(field.getMaptype()).saveScore(player.getName(), field.getCurrentLevel());
+                endGame.draw("lose");
+                State.setState(endGame);
+                ui.clear();
+            } else if (field.endGame()) {
+                new ListScore(field.getMaptype()).saveScore(player.getName(), field.getCurrentLevel());
+                int tick = 0;
+                while (tick != 100000000) tick++;
+                endGame.draw("win");
+                ui.clear();
             }
-        };
-        timer.start();
+            if (ui.nextWave()){
+                if (!field.isContinue()) field.newLevel();
+                ui.setclickNext(false);
+            }
+            field.update();
+            if (ui.isOnMusic()) {
+                GameSound.startGameMusic();
+                GameSound.playSound(field.getSpawnList(), field.getDestroyList());
+            } else GameSound.muteGameMusic();
+        } else if (ui.savegame()) {
+            GameSave.saveGame(field);
+            System.exit(0);
+        }
     }
 
-    public void setMouseHandler(){
-        display.getScene().setOnMouseClicked(field.getHandler());
-        display.getScene().setOnMouseMoved(field.getHandler());
+    @Override
+    public void render() {
+        display.getGc().clearRect(0, 0, display.getWidth(), display.getHeight());
+        ui.render();
+        field.render(display.getGc());
+    }
+
+    @Override
+    public void handle() {
+        ui.setHandle();
     }
 }

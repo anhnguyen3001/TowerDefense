@@ -1,0 +1,10 @@
+NormalSpawner 10 5
+NormalSpawner 10 0
+BossSpawner 25 0
+BossSpawner 25 1
+SmallerSpawner 5 8
+SmallerSpawner 5 10
+TankerSpawner 15 4
+TankerSpawner 15 0
+FlyingSpawner 15 0
+FlyingSpawner 15 7

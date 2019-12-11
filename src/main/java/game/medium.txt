@@ -1,0 +1,26 @@
+medium
+10x16
+0 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0
+1 1 1 1 1 0 0 0 0 0 2 0 0 0 1 0
+0 0 0 0 1 0 2 0 0 0 0 0 2 0 1 0
+0 2 0 0 1 1 1 1 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0
+0 0 0 0 3 0 0 0 0 0 0 1 0 0 0 0
+0 0 3 0 0 0 0 0 2 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0
+StartEnd 0 1 0 8 14 0 0 8
+MaxLevel 20
+CurrentLevel 1
+NormalSpawner 0 10 0
+NormalSpawner 0 10 5
+BossSpawner 0 25 0
+BossSpawner 0 25 0
+SmallerSpawner 0 5 0
+SmallerSpawner 0 5 0
+TankerSpawner 0 15 0
+TankerSpawner 0 15 0
+FlyingSpawner 0 15 0
+FlyingSpawner 0 15 0
+

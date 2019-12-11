@@ -1,15 +1,16 @@
 package game.Enemy;
 
 import game.Config;
+import game.helper.Asset;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
 public class TankerEnemy extends AbstractEnemy{
-    public TankerEnemy(ArrayList<Double> wayPoint, double x, double y){
-        super(wayPoint, x, y, Config.TANKER_E_Blood, Config.TANKER_E_Speed,
-                Config.TANKER_E_Armor, Config.TANKER_E_Reward, Config.TANKER_E_PATH);
+    public TankerEnemy(ArrayList<Double> wayPoint, double x, double y, int health, int priority){
+        super(wayPoint, x, y, health, Config.TANKER_E_Speed, Config.TANKER_E_Armor, Config.TANKER_E_Reward, priority,
+                Asset.TANKER_ENEMY);
     }
 
     @Override
@@ -17,8 +18,8 @@ public class TankerEnemy extends AbstractEnemy{
         double x = getX() + 0.25;
         double y = getY();
         double sizeTile = Config.SIZE_TILE;
-        double widthBar = getSize()*0.5;
-        double heightBar = getSize()*0.1;
+        double widthBar = sizeTile*0.5;
+        double heightBar = sizeTile*0.1;
         gc.setFill(Color.RED);
         gc.fillRect(x * sizeTile, y * sizeTile, widthBar, heightBar);
 
@@ -29,5 +30,9 @@ public class TankerEnemy extends AbstractEnemy{
             gc.setFill(Color.GREEN);
             gc.fillRect(x * sizeTile, y * sizeTile, widthBar * ratio, heightBar);
         }
+    }
+
+    public String toString(){
+        return "TankerEnemy " + super.toString();
     }
 }

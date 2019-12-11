@@ -1,27 +1,23 @@
 package game.Tile;
 
-import game.Config;
+import game.*;
 import game.Enemy.AbstractEnemy;
-import game.GameField;
+import game.helper.Asset;
 
 import java.util.ArrayList;
 
 public class Target extends AbstractTile implements UpdateEntity{
-    private int health;
-    public Target(double x, double y, int health) {
-        super(x, y, Config.TARGET_PATH);
+    public Target(double x, double y) {
+        super(x, y, Asset.target);
     }
 
     @Override
     public void update(GameField field) {
-        ArrayList<AbstractEnemy> enemies = field.getEnemies();
+        ArrayList<AbstractEntity> destroyList = field.getDestroyList();
+        Player player = field.getPlayer();
 
-        for (AbstractEnemy enemy:enemies)
-            if (enemy.getX() == getX() && enemy.getY() == getY())
-                health--;
-    }
-
-    public int getHealth(){
-        return health;
+        for (AbstractEntity entity:destroyList)
+            if (entity instanceof AbstractEnemy && ((AbstractEnemy) entity).isAlive())
+                player.setLive(player.getLive() - 1);
     }
 }

@@ -1,5 +1,6 @@
 package game.state;
 
+import game.Config;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -28,12 +29,15 @@ public class Display {
         primaryStage.setTitle(gameTitle);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
+        primaryStage.setOnCloseRequest(event -> {
+            System.exit(0);
+        });
         primaryStage.show();
     }
 
-    public void changeStage(Canvas canvas){
-        this.canvas = canvas;
-        this.gc = canvas.getGraphicsContext2D();
+    public void changeStage(){
+        canvas = new Canvas(width, height);
+        gc = canvas.getGraphicsContext2D();
         root = new Group(canvas);
         scene = new Scene(root);
         primaryStage.setScene(scene);

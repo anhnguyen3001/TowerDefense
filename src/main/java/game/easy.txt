@@ -1,0 +1,20 @@
+easy
+10x16
+0 0 0 0 2 0 3 0 0 0 0 0 0 0 0 0
+0 2 0 0 0 0 0 0 2 0 0 0 0 0 0 3
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1
+0 0 0 1 0 0 0 0 0 2 0 0 0 0 0 2
+3 3 0 1 0 0 0 0 0 0 0 0 0 0 0 2
+3 3 0 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 0 2 0 0 0 0 0 0 0 0 3 0 0 1 0
+2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+2 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0
+StartEnd 15 2 0 8
+MaxLevel 20
+CurrentLevel 1
+NormalSpawner 0 20 0
+BossSpawner 0 40 0
+SmallerSpawner 0 30 0
+TankerSpawner 0 30 0
+FlyingSpawner 0 20 2
