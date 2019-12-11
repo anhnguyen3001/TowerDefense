@@ -1,7 +1,7 @@
 package game;
 
 import game.Tile.BlankLand;
-import game.Tile.Tower.TowerInfo;
+import game.helper.Rectangle;
 import game.store.Store;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -12,10 +12,11 @@ import javafx.scene.input.MouseEvent;
 public class Handle implements EventHandler<MouseEvent>{
     private GameField field;
     private Store store;
-    private Group root;
+    private Rectangle music;
 
     private int towerType;
     private boolean clickSellUpgrade;
+    private boolean onMusic;
 
     private ImageView ivTower;
     private ImageView ivSell;
@@ -23,15 +24,16 @@ public class Handle implements EventHandler<MouseEvent>{
 
     private BlankLand land;
 
-    public Handle(GameField field, Store store, Group root){
+    public Handle(GameField field, Store store, Group root, Rectangle music){
         this.field = field;
         this.store = store;
-        this.root = root;
+        this.music = music;
         towerType = 0;
         land = null;
         clickSellUpgrade = false;
+        onMusic = true;
         ivTower = new ImageView();
-        this.root.getChildren().add(ivTower);
+        root.getChildren().add(ivTower);
 
         ivSell = new ImageView(new Image(Config.SELL));
         ivSell.setFitHeight(35);
@@ -40,7 +42,7 @@ public class Handle implements EventHandler<MouseEvent>{
         ivUpgrade = new ImageView(new Image(Config.UPGRADE));
         ivUpgrade.setFitWidth(35);
         ivUpgrade.setFitHeight(35);
-        this.root.getChildren().addAll(ivSell, ivUpgrade);
+        root.getChildren().addAll(ivSell, ivUpgrade);
         ivUpgrade.setVisible(false);
         ivSell.setVisible(false);
     }
@@ -138,8 +140,9 @@ public class Handle implements EventHandler<MouseEvent>{
                 ivUpgrade.setVisible(false);
             }
         } else{
-            chooseTower(mouseX, mouseY);
-            if (clickSellUpgrade){
+            if (music.contains(mouseX, mouseY)) onMusic = !onMusic;
+            else chooseTower(mouseX, mouseY);
+            if (clickSellUpgrade) {
                 clickSellUpgrade = false;
                 ivSell.setVisible(false);
                 ivUpgrade.setVisible(false);
@@ -171,5 +174,9 @@ public class Handle implements EventHandler<MouseEvent>{
 
         if (MouseEvent.MOUSE_CLICKED == event.getEventType()) mouseClickedHandler(mouseX, mouseY);
         else if (MouseEvent.MOUSE_MOVED == event.getEventType()) mouseMovedHandler(mouseX, mouseY);
+    }
+
+    public boolean isOnMusic() {
+        return onMusic;
     }
 }

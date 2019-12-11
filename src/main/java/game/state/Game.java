@@ -1,20 +1,16 @@
 package game.state;
 
 import game.*;
-import game.helper.Asset;
+import game.Display;
 import game.helper.ListScore;
 
 public class Game extends State{
-    private Display display;
+    private game.Display display;
     private EndGame endGame;
     private GameField field;
     private GameStage gameStage;
     private UI ui;
     private Player player;
-
-    /**public Game(Display display){
-        this.display = display;
-    }**/
 
     public void loadGame(String path, Display display){
         GameSound.gameMusic();

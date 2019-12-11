@@ -11,22 +11,17 @@ medium
 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 
 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 
 StartEnd 0.0 1.0 0.0 8.0 14.0 0.0 0.0 8.0 
-NormalSpawner -447 10 0
-NormalSpawner -396 10 0
-BossSpawner -447 25 0
-BossSpawner -447 25 0
-SmallerSpawner -447 5 0
-SmallerSpawner -447 5 0
-TankerSpawner -447 15 0
-TankerSpawner -447 15 0
-FlyingSpawner -447 15 0
-FlyingSpawner -447 15 0
-NormalEnemy 14.0 0.0 0.0 8.0 0.0849999999999989 8.0 30
-NormalEnemy 14.0 0.0 0.0 8.0 0.14999999999997815 8.0 70
-NormalEnemy 14.0 0.0 0.0 8.0 0.6499999999999782 8.0 70
-NormalEnemy 14.0 0.0 0.0 8.0 1.1499999999999786 8.0 70
-NormalEnemy 14.0 0.0 0.0 8.0 1.889999999999975 8.0 50
-FreezeTower 8.0 7.0 -81 1
-Player sd 15 15
+NormalSpawner -499 10 0
+NormalSpawner -448 10 0
+BossSpawner -499 25 0
+BossSpawner -499 25 0
+SmallerSpawner -499 5 0
+SmallerSpawner -499 5 0
+TankerSpawner -499 15 0
+TankerSpawner -499 15 0
+FlyingSpawner -499 15 0
+FlyingSpawner -499 15 0
+NormalTower 7.0 5.0 -259 1
+Player pl 10 25
 MaxLevel 20
 CurrentLevel 1
